@@ -3,7 +3,6 @@ function scrollToProjects() {
   }
   document.getElementById("darkModeToggle").addEventListener("click", function () {
     document.body.classList.toggle("dark");
-    // Change icon dynamically
     const icon = this.textContent;
     this.textContent = icon === "🌙" ? "☀️" : "🌙";
   });
@@ -90,7 +89,6 @@ function openModal(title, description) {
       document.getElementById("modal").style.display = "none";
     }
   });
-  // Open modal with custom content
 function openModal(title, description, link) {
     document.getElementById("modal-title").textContent = title;
     document.getElementById("modal-description").textContent = description;
@@ -98,18 +96,18 @@ function openModal(title, description, link) {
     document.getElementById("modal").style.display = "block";
   }
   
-  // Close modal
+ 
   document.querySelector(".close").addEventListener("click", () => {
     document.getElementById("modal").style.display = "none";
   });
   
-  // Click outside modal closes it
+
   window.addEventListener("click", (event) => {
     if (event.target == document.getElementById("modal")) {
       document.getElementById("modal").style.display = "none";
     }
   });
-  // Detect when the element is in view
+
 window.addEventListener('scroll', function() {
   const elements = document.querySelectorAll('.fade-in');
   elements.forEach(function(element) {
