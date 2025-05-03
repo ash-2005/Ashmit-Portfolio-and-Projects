@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fancy Algorithm Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="container">
+
+  <!-- Sidebar (Left) -->
+  <div class="sidebar">
+    <h1>Visualizer</h1>
+
+    <div class="controls">
+      <div class="button-group">
+        <button id="startBtn" onclick="startVisualization()">▶ Start</button>
+        <button id="pauseBtn" onclick="pauseVisualization()">⏸ Pause</button>
+        <button id="resetBtn" onclick="resetData()">🔄 Reset</button>
+      </div>
+
+      <div class="element-controller">
+        <label>Elements</label>
+        <div class="element-controls">
+          <button onclick="decreaseElements()">➖</button>
+          <span id="elementCountDisplay">10</span>
+          <button onclick="increaseElements()">➕</button>
+        </div>
+      </div>
+
+      <label>Speed
+        <input type="range" min="1" max="10" value="5" id="speed">
+      </label>
+
+      <div class="dark-mode-toggle">
+        <label>
+          <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
+          Dark Mode
+        </label>
+      </div>
+    </div>
+
+    <div class="selection">
+      <details open>
+        <summary>Sorting</summary>
+        <button onclick="selectAlgorithm('bubble')">Bubble Sort</button>
+        <button onclick="selectAlgorithm('selection')">Selection Sort</button>
+        <button onclick="selectAlgorithm('insertion')">Insertion Sort</button>
+        <button onclick="selectAlgorithm('merge')">Merge Sort</button>
+        <button onclick="selectAlgorithm('quick')">Quick Sort</button>
+        <button onclick="selectAlgorithm('heap')">Heap Sort</button>
+      </details>
+      
+      <details>
+        <summary>Searching</summary>
+        <button onclick="selectAlgorithm('linearSearch')">Linear Search</button>
+      </details>
+    </div>
+
+  </div>
+
+  <!-- Visualizer Area (Right) -->
+  <div class="visualizer-area">
+    <div id="visualization-area"></div>
+    <div id="algo-info" class="info-box">Select an algorithm to visualize!</div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Electronics Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="container">
+
+  <div class="sidebar">
+    <h1>Digital Visualizer</h1>
+
+    <div class="controls">
+      <details>
+        <summary>Number System Converter</summary>
+        <button onclick="selectCircuit('NumberConverter')">Open Converter</button>
+      </details>
+      
+      <details>
+        <summary>Logic Gates</summary>
+        <button onclick="selectCircuit('AND')">AND Gate</button>
+        <button onclick="selectCircuit('OR')">OR Gate</button>
+        <button onclick="selectCircuit('NOT')">NOT Gate</button>
+        <button onclick="selectCircuit('XOR')">XOR Gate</button>
+        <button onclick="selectCircuit('NOR')">NOR Gate</button>
+        <button onclick="selectCircuit('NAND')">NAND Gate</button>
+        <button onclick="selectCircuit('XNOR')">XNOR Gate</button>
+      </details>
+    </div>
+
+  </div>
+
+  <div class="visualizer-area">
+    <canvas id="circuit-canvas" width="800" height="500"></canvas>
+  
+    <!-- Logic expression display added below the canvas -->
+    <div id="logic-expression" style="margin-top: 10px; font-weight: bold;"></div>
+  
+    <div id="input-controls"></div>
+  
+    <div id="number-converter" style="display:none; text-align: center;">
+      <h3>Number System Converter</h3>
+      <input type="text" id="numberInput" placeholder="Enter Number" />
+      <select id="fromBase">
+        <option value="2">Binary</option>
+        <option value="8">Octal</option>
+        <option value="10" selected>Decimal</option>
+        <option value="16">Hex</option>
+      </select>
+      <button onclick="convertNumber()">Convert</button>
+  
+      <div id="conversionResults" style="margin-top: 1rem;">
+        <p><strong>Binary:</strong> <span id="binOut">-</span></p>
+        <p><strong>Octal:</strong> <span id="octOut">-</span></p>
+        <p><strong>Decimal:</strong> <span id="decOut">-</span></p>
+        <p><strong>Hex:</strong> <span id="hexOut">-</span></p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

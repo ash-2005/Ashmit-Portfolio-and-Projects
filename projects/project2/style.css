@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  height: 100vh;
+}
+
+#container {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  width: 250px;
+  background: #2c3e50;
+  color: white;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.sidebar h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sidebar details {
+  margin-bottom: 20px;
+}
+
+.sidebar button {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  background: #3498db;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.sidebar button:hover {
+  background: #2980b9;
+  transform: translateY(-3px); /* Slight lift effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+.sidebar button:active {
+  background: #1f6f8b; /* Darker blue for active state */
+  transform: translateY(1px); /* Slight press effect */
+}
+
+.visualizer-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ecf0f1;
+  padding: 20px;
+}
+
+canvas {
+  background: white;
+  border: 1px solid #bdc3c7;
+}
+
+#input-controls {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#input-controls button {
+  margin: 10px;
+  padding: 12px 24px;
+  background: #2ecc71;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+#input-controls button:hover {
+  background: #27ae60;
+  transform: translateY(-3px); /* Slight lift effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+#input-controls button:active {
+  background: #1e824c; /* Darker green for active state */
+  transform: translateY(1px); /* Slight press effect */
+}
+/* Number Converter Container */
+#number-converter {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-top: 20px;
+}
+
+/* Text input */
+#numberInput {
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 180px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+#numberInput:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52,152,219,0.4);
+}
+
+/* Base selector */
+#fromBase {
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+#fromBase:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52,152,219,0.4);
+}
+
+/* Convert button */
+#number-converter button {
+  padding: 10px 20px;
+  margin-left: 8px;
+  background: #3498db;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+#number-converter button:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+}
+#number-converter button:active {
+  background: #1f6391;
+  transform: translateY(1px);
+}
+
+/* Converter dropdown & button alignment */
+#number-converter input,
+#number-converter select,
+#number-converter button {
+  vertical-align: middle;
+}
