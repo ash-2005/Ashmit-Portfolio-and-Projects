@@ -1,4 +1,4 @@
-// Global Variables
+
 let array = [];
 let isPaused = false;
 let currentAlgorithm = null;
@@ -153,7 +153,7 @@ async function bubbleSort() {
   }
 }
 
-// Selection Sort
+
 async function selectionSort() {
   let bars = document.getElementsByClassName('bar');
   for (let i = 0; i < array.length; i++) {
