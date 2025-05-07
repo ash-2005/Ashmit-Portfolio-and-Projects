@@ -3,37 +3,36 @@ let array = [];
 let isPaused = false;
 let currentAlgorithm = null;
 let speed = 5;
-let elementCount = 10; // Controlled via + and - buttons
+let elementCount = 10; 
 
 let stackArray = [];
 let queueArray = [];
 
-// Sleep Helper
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// Get speed from slider
+
 function getSleepTime() {
   let slider = document.getElementById('speed');
   return (11 - parseInt(slider.value)) * 100;
 }
 
-// Draw visual bars
+
 function drawArray(structure = array) {
     const container = document.getElementById('visualization-area');
     container.innerHTML = '';
   
     const maxBars = structure.length;
     const maxValue = Math.max(...structure);
-    const availableHeight = container.clientHeight - 20; // total area minus bottom padding
+    const availableHeight = container.clientHeight - 20; 
     const barWidth = Math.max(5, Math.min(30, (container.clientWidth - 20) / maxBars - 6));
   
     structure.forEach(value => {
       const bar = document.createElement('div');
       bar.classList.add('bar');
   
-      // Normalized height (leave 10px top margin)
+    
       const normalizedHeight = (value / maxValue) * (availableHeight - 10);
       bar.style.height = `${normalizedHeight}px`;
   
@@ -42,8 +41,6 @@ function drawArray(structure = array) {
     });
   }
   
-
-// Select Algorithm
 function selectAlgorithm(algorithm) {
   currentAlgorithm = algorithm;
   resetData();
@@ -61,9 +58,9 @@ function selectAlgorithm(algorithm) {
   document.getElementById('algo-info').innerText = info[algorithm] || 'Algorithm Selected.';
 }
 
-// Reset and create new data
+
 function resetData() {
-  isPaused = true; // Automatically pause
+  isPaused = true; 
   array = [];
   if (['stackArray', 'queueArray'].includes(currentAlgorithm)) {
     stackArray = [];
@@ -76,8 +73,6 @@ function resetData() {
   }
   drawArray();
 }
-
-// Start Visualization
 async function startVisualization() {
   isPaused = false;
   speed = getSleepTime();
@@ -93,12 +88,12 @@ async function startVisualization() {
   }
 }
 
-// Pause Visualization
+
 function pauseVisualization() {
   isPaused = true;
 }
 
-// Increase / Decrease Elements
+
 function increaseElements() {
   if (elementCount < 30) {
     elementCount++;
@@ -119,12 +114,12 @@ function updateElementDisplay() {
   document.getElementById('elementCountDisplay').innerText = elementCount;
 }
 
-// Dark Mode Toggle
+
 function toggleDarkMode() {
   document.body.classList.toggle('dark');
 }
 
-// General Sorting Functions
+
 async function sortArray() {
   if (currentAlgorithm === 'bubble') await bubbleSort();
   else if (currentAlgorithm === 'selection') await selectionSort();
@@ -135,7 +130,7 @@ async function sortArray() {
   drawArray();
 }
 
-// Bubble Sort
+
 async function bubbleSort() {
   let bars = document.getElementsByClassName('bar');
   for (let i = 0; i < array.length; i++) {
@@ -177,7 +172,7 @@ async function selectionSort() {
   }
 }
 
-// Insertion Sort
+
 async function insertionSort() {
   let bars = document.getElementsByClassName('bar');
   for (let i = 1; i < array.length; i++) {
@@ -201,7 +196,6 @@ async function insertionSort() {
   }
 }
 
-// Merge Sort
 async function mergeSort(left, right) {
   if (left >= right) return;
   const mid = Math.floor((left + right) / 2);
@@ -234,7 +228,7 @@ async function merge(left, mid, right) {
   }
 }
 
-// Quick Sort
+
 async function quickSort(low, high) {
   if (low < high) {
     let pi = await partition(low, high);
@@ -267,7 +261,6 @@ async function partition(low, high) {
   return i + 1;
 }
 
-// Heap Sort
 async function heapSort() {
   let n = array.length;
   for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
@@ -294,7 +287,6 @@ async function heapify(n, i) {
     await heapify(n, largest);
   }
 }
-// Visualize Linear Search
 async function visualizeLinearSearch() {
   let target = array[Math.floor(Math.random() * array.length)];
   for (let i = 0; i < array.length; i++) {
@@ -310,6 +302,5 @@ async function visualizeLinearSearch() {
   }
 }
 
-// Initial Call
 resetData();
 updateElementDisplay();
