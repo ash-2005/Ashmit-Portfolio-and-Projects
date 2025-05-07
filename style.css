@@ -1,4 +1,4 @@
-/* ========= RESET & BASICS ========= */
+
 * {
   margin: 0;
   padding: 0;
@@ -186,11 +186,11 @@ body.dark .section-heading::after {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 body.dark #hero {
-  background: #282c34; /* or #1e1e1e */
+  background: #282c34; 
 }
 body.dark #projects {
   background: linear-gradient(135deg, #333, #444, #555) !important;
-  transition: background-color 0.5s ease;  /* smooth transition */
+  transition: background-color 0.5s ease; 
 }
 body.dark .project-card {
   background: #1f1f1f;
@@ -264,7 +264,6 @@ body.dark #contact {
   font-size: 1rem;
 }
 
-/* Divider with “OR” */
 .divider {
   display: flex;
   align-items: center;
@@ -317,7 +316,7 @@ body.dark #contact {
 .contact-links a:nth-child(3) { animation-delay: 0.6s; }
 .contact-links a:nth-child(4) { animation-delay: 0.8s; }
 
-/* ========= ANIMATIONS ========= */
+
 @keyframes gradientBG {
   0% {background-position: 0% 50%;}
   50% {background-position: 100% 50%;}
@@ -343,7 +342,6 @@ body.dark #contact {
   50% { transform: translateY(-5px); }
 }
 
-/* ========= SCROLL & REVEAL ========= */
 .reveal,
 .fade-in-up {
   opacity: 0;
@@ -433,13 +431,12 @@ body.dark .modal-content {
   background-color: #333;
 }
 
-/* ========= CURSOR ANIMATION ========= */
 .cursor {
   font-weight: bold;
   animation: blink 1s step-start infinite;
 }
 
-/* ========= RESPONSIVE ========= */
+
 @media (max-width: 768px) {
   nav {
     display: flex;
