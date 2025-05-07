@@ -3,27 +3,25 @@ const ctx    = canvas.getContext('2d');
 
 let inputA = 0, inputB = 0;
 
-// clear the drawing area
+
 function clearCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-// remove old buttons
 function clearControls() {
   document.getElementById('input-controls').innerHTML = '';
 }
 
-// high‑level dispatcher
 function selectCircuit(name) {
-  // reset inputs
+  
   inputA = inputB = 0;
 
-  // hide converter by default, show canvas
+ 
   document.getElementById('number-converter').style.display = 'none';
   document.getElementById('circuit-canvas').style.display = 'block';
   clearControls();
 
-  // show/hide expression label
+
   document.getElementById('logic-expression').style.display =
     (name === 'NumberConverter') ? 'none' : 'block';
 
@@ -42,14 +40,14 @@ function selectCircuit(name) {
   }
 }
 
-// create A/B toggle buttons and draw on change
+
 function setupGate(expr, drawFn) {
   document.getElementById('logic-expression').innerText = 'Logic: ' + expr;
   createInputButtons(['A','B'], drawFn);
   drawFn();
 }
 
-// A/B buttons helper
+
 function createInputButtons(inputs, onChange) {
   const c = document.getElementById('input-controls');
   c.innerHTML = '';
@@ -66,13 +64,12 @@ function createInputButtons(inputs, onChange) {
       if (name==='A') inputA = on?1:0;
       if (name==='B') inputB = on?1:0;
       onChange();
-      updateSelectedDisplay(name, on);  // Update display of selected input around canvas
+      updateSelectedDisplay(name, on);  
     };
     c.appendChild(btn);
   });
 }
 
-// Display the selected input state around the canvas
 function updateSelectedDisplay(input, state) {
   const selectedDiv = document.getElementById('selected-input');
   selectedDiv.innerHTML = `${input} is ${state ? 'ON' : 'OFF'}`;
@@ -85,23 +82,22 @@ function updateSelectedDisplay(input, state) {
   selectedDiv.style.borderRadius = '5px';
 }
 
-// draw connection wire
 function drawWire(x1,y1,x2,y2,active) {
   ctx.strokeStyle = active? 'green':'red';
   ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
 }
 
-// ─── Gate Evaluators ────────────────────────────────────────────────
+
 
 function evaluateAND() {
   clearCanvas();
   const out = inputA & inputB;
-  // gate shape
+
   ctx.lineWidth=2; ctx.strokeStyle='black';
   ctx.beginPath(); ctx.moveTo(150,150); ctx.lineTo(190,150);
   ctx.arc(190,200,50,-Math.PI/2,Math.PI/2); ctx.lineTo(150,250);
   ctx.closePath(); ctx.stroke();
-  // wires
+
   drawWire(80,170,150,170,inputA);
   drawWire(80,230,150,230,inputB);
   drawWire(240,200,300,200,out);
@@ -134,12 +130,11 @@ function evaluateNOT() {
 function evaluateXOR() {
   clearCanvas();
   const out = inputA ^ inputB;
-  // outer curve
+
   ctx.lineWidth=2; ctx.strokeStyle='black';
   ctx.beginPath(); ctx.moveTo(150,150); ctx.quadraticCurveTo(190,200,150,250); ctx.stroke();
-  // inner XOR curve
-  ctx.beginPath(); ctx.moveTo(145,150); ctx.quadraticCurveTo(185,200,145,250); ctx.stroke();
-  // box lines
+   ctx.beginPath(); ctx.moveTo(145,150); ctx.quadraticCurveTo(185,200,145,250); ctx.stroke();
+ 
   ctx.beginPath(); ctx.moveTo(150,150); ctx.lineTo(220,150);
   ctx.lineTo(250,200); ctx.lineTo(220,250); ctx.lineTo(150,250); ctx.stroke();
   drawWire(80,170,150,170,inputA);
@@ -150,37 +145,34 @@ function evaluateXOR() {
 function evaluateNAND() {
   clearCanvas();
   const out = !(inputA & inputB) ? 1:0;
-  // draw AND
+
   evaluateAND();
-  // draw inversion circle
+  
   ctx.beginPath(); ctx.arc(310,200,10,0,2*Math.PI); ctx.stroke();
-  // output wire
+  
   drawWire(320,200,360,200,out);
 }
 
 function evaluateNOR() {
   clearCanvas();
   const out = !(inputA | inputB) ? 1:0;
-  // draw OR
+
   evaluateOR();
-  // inversion circle
+  
   ctx.beginPath(); ctx.arc(260,200,10,0,2*Math.PI); ctx.stroke();
-  // out wire
+
   drawWire(270,200,320,200,out);
 }
 
 function evaluateXNOR() {
   clearCanvas();
   const out = !(inputA ^ inputB)?1:0;
-  // draw XOR
+
   evaluateXOR();
-  // inversion circle
   ctx.beginPath(); ctx.arc(300,200,10,0,2*Math.PI); ctx.stroke();
-  // out wire
+
   drawWire(310,200,360,200,out);
 }
-
-// ── Number Converter function remains as before ──
 function convertNumber() {
   let s = document.getElementById('numberInput').value;
   let b = parseInt(document.getElementById('fromBase').value,10);
