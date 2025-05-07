@@ -44,13 +44,13 @@ body {
 
 .sidebar button:hover {
   background: #2980b9;
-  transform: translateY(-3px); /* Slight lift effect */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
 }
 
 .sidebar button:active {
-  background: #1f6f8b; /* Darker blue for active state */
-  transform: translateY(1px); /* Slight press effect */
+  background: #1f6f8b; 
+  transform: translateY(1px); 
 }
 
 .visualizer-area {
@@ -87,15 +87,14 @@ canvas {
 
 #input-controls button:hover {
   background: #27ae60;
-  transform: translateY(-3px); /* Slight lift effect */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow on hover */
-}
+  transform: translateY(-3px); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
 
 #input-controls button:active {
-  background: #1e824c; /* Darker green for active state */
-  transform: translateY(1px); /* Slight press effect */
+  background: #1e824c;
+  transform: translateY(1px); 
 }
-/* Number Converter Container */
+
 #number-converter {
   background: #fff;
   padding: 20px;
@@ -104,7 +103,7 @@ canvas {
   margin-top: 20px;
 }
 
-/* Text input */
+
 #numberInput {
   padding: 10px 12px;
   font-size: 16px;
@@ -119,7 +118,7 @@ canvas {
   box-shadow: 0 0 5px rgba(52,152,219,0.4);
 }
 
-/* Base selector */
+
 #fromBase {
   padding: 10px 12px;
   font-size: 16px;
@@ -134,7 +133,6 @@ canvas {
   box-shadow: 0 0 5px rgba(52,152,219,0.4);
 }
 
-/* Convert button */
 #number-converter button {
   padding: 10px 20px;
   margin-left: 8px;
@@ -156,7 +154,6 @@ canvas {
   transform: translateY(1px);
 }
 
-/* Converter dropdown & button alignment */
 #number-converter input,
 #number-converter select,
 #number-converter button {
