@@ -74,11 +74,13 @@ function typeText() {
 
 typeText();
 
-function openModal(title, description) {
+function openModal(title, description, link) {
     document.getElementById("modal-title").textContent = title;
-    ddocument.getElementById("modal-description").textContent = description;
+    document.getElementById("modal-description").textContent = description;
+    document.getElementById("modal-link").href = link;
     document.getElementById("modal").style.display = "block";
   }
+  
   
   document.querySelector(".close").addEventListener("click", () => {
     document.getElementById("modal").style.display = "none";
@@ -89,13 +91,7 @@ function openModal(title, description) {
       document.getElementById("modal").style.display = "none";
     }
   });
-function openModal(title, description, link) {
-    document.getElementById("modal-title").textContent = title;
-    document.getElementById("modal-description").textContent = description;
-    document.getElementById("modal-link").href = link;
-    document.getElementById("modal").style.display = "block";
-  }
-  
+
  
   document.querySelector(".close").addEventListener("click", () => {
     document.getElementById("modal").style.display = "none";
