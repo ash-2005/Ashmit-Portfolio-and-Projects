@@ -92,18 +92,6 @@ function openModal(title, description, link) {
     }
   });
 
- 
-  document.querySelector(".close").addEventListener("click", () => {
-    document.getElementById("modal").style.display = "none";
-  });
-  
-
-  window.addEventListener("click", (event) => {
-    if (event.target == document.getElementById("modal")) {
-      document.getElementById("modal").style.display = "none";
-    }
-  });
-
 window.addEventListener('scroll', function() {
   const elements = document.querySelectorAll('.fade-in');
   elements.forEach(function(element) {
